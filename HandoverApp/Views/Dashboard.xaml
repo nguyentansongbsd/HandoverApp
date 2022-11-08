@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Static lang:Language.trang_chu_title}"
+             xmlns:controls="clr-namespace:HandoverApp.Controls"
+             xmlns:lang="clr-namespace:HandoverApp.Resources"
+             xmlns:telerikChart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:convertes ="clr-namespace:HandoverApp.Converters" xmlns:views="clr-namespace:HandoverApp.Views"
+             x:Class="HandoverApp.Views.Dashboard">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convertes:CurrencyFormatConverter x:Key="CurrencyFormat"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="ScanQRCode_Clicked">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="FontAwesomeSolid"
+                    Glyph="&#xf029;"
+                    Size="20" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <RefreshView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
+                <ScrollView Padding="0,0,0,20">
+                    <StackLayout Spacing="0">
+
+                        <!--#region Nghiem Thu-->
+                        <Label FontSize="16" Text="{x:Static lang:Language.nghiem_thu_trang_chu}"  TextColor="{StaticResource NavigationPrimary}" FontAttributes="Bold" Padding="14,14,14,8"/>
+                        <Grid ColumnDefinitions="*,*" Margin="14,6">
+                            <controls:ExtendedFrame Grid.Column="0" Padding="4,16" VerticalOptions="Center">
+                                <StackLayout Spacing="12">
+                                    <Label Text="{Binding TotalAcceptanceing}" FontSize="18" TextColor="#D42A16" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{x:Static lang:Language.dang_nghiem_thu_trang_chu}" FontSize="15" TextColor="#B3B3B3" HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                            </controls:ExtendedFrame>
+                            <controls:ExtendedFrame Grid.Column="1" Padding="4,16" VerticalOptions="Center">
+                                <StackLayout Spacing="12">
+                                    <Label Text="{Binding TotalAcceptanced}" FontSize="18" TextColor="#2196F3" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{x:Static lang:Language.da_nghiem_thu_trang_chu}" FontSize="15" TextColor="#B3B3B3" HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                            </controls:ExtendedFrame>
+                        </Grid>
+                        <controls:ChartBarSeriesControl FirBarSeriesData="{Binding AcceptanceTotalExpense}" SecBarSeriesData="{Binding AcceptanceNumTotal}" FirBarSeriesColor="#2196F3" SecBarSeriesColor="#D42A16" MinLeftBarSeries="0" MaxLeftBarSeries="500" MajorStepLeftBarSeries="100" LabelFormatLeftBarSeries="#,0 tỷ" MinRightBarSeries="0" MaxRightBarSeries="100" MajorStepRightBarSeries="20" />
+                        <!--#endregion Nghiem thu-->
+
+                        <!--#region Ban giao sp-->
+                        <Label FontSize="16" Text="{x:Static lang:Language.ban_giao_san_pham_trang_chu}"  TextColor="{StaticResource NavigationPrimary}" FontAttributes="Bold" Padding="14,14,14,8"/>
+                        <Grid ColumnDefinitions="*,*" Margin="14,6">
+                            <controls:ExtendedFrame Grid.Column="0" Padding="4,16" VerticalOptions="Center">
+                                <StackLayout Spacing="12">
+                                    <Label Text="{Binding TotalUnitHandovering}" FontSize="18" TextColor="#D42A16" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{x:Static lang:Language.dang_ban_giao_trang_chu}" FontSize="15" TextColor="#B3B3B3" HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                            </controls:ExtendedFrame>
+                            <controls:ExtendedFrame Grid.Column="1" Padding="4,16" VerticalOptions="Center">
+                                <StackLayout Spacing="12">
+                                    <Label Text="{Binding TotalUnitHandovered}" FontSize="18" TextColor="#2196F3" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{x:Static lang:Language.da_ban_giao_trang_chu}" FontSize="15" TextColor="#B3B3B3" HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                            </controls:ExtendedFrame>
+                        </Grid>
+                        <controls:ChartBarSeriesControl FirBarSeriesData="{Binding UnitHandoverTotalExpense}" SecBarSeriesData="{Binding UnitHandoverNumTotal}" FirBarSeriesColor="#2196F3" SecBarSeriesColor="#D42A16" MinLeftBarSeries="0" MaxLeftBarSeries="500" MajorStepLeftBarSeries="100" LabelFormatLeftBarSeries="#,0 tỷ" MinRightBarSeries="0" MaxRightBarSeries="100" MajorStepRightBarSeries="20" />
+                        <!--#endregion Ban giao sp-->
+
+                        <!--#region Ban giao GCN-->
+                        <Label FontSize="16" Text="{x:Static lang:Language.ban_giao_giay_chung_nhan_trang_chu}"  TextColor="{StaticResource NavigationPrimary}" FontAttributes="Bold" Padding="14,14,14,8"/>
+                        <Grid ColumnDefinitions="*,*" Margin="14,6">
+                            <controls:ExtendedFrame Grid.Column="0" Padding="4,16" VerticalOptions="Center">
+                                <StackLayout Spacing="12">
+                                    <Label Text="{Binding TotalPinkBookHandovering}" FontSize="18" TextColor="#D42A16" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{x:Static lang:Language.dang_ban_giao_trang_chu}" FontSize="15" TextColor="#B3B3B3" HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                            </controls:ExtendedFrame>
+                            <controls:ExtendedFrame Grid.Column="1" Padding="4,16" VerticalOptions="Center">
+                                <StackLayout Spacing="12">
+                                    <Label Text="{Binding TotalPinkBookHandovered}" FontSize="18" TextColor="#2196F3" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{x:Static lang:Language.da_ban_giao_trang_chu}" FontSize="15" TextColor="#B3B3B3" HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                            </controls:ExtendedFrame>
+                        </Grid>
+                        <controls:ChartBarSeriesControl FirBarSeriesData="{Binding PinkBookHandoverTotalExpense}" SecBarSeriesData="{Binding PinkBookHandoverNumTotal}" FirBarSeriesColor="#2196F3" SecBarSeriesColor="#D42A16" MinLeftBarSeries="0" MaxLeftBarSeries="500" MajorStepLeftBarSeries="100" LabelFormatLeftBarSeries="#,0 tỷ" MinRightBarSeries="0" MaxRightBarSeries="100" MajorStepRightBarSeries="20" />
+                        <!--#endregion Ban giao sp-->
+
+                        <!--#regionCong viec hom nay-->
+                        <Grid Padding="14,14,14,8" ColumnDefinitions="*,Auto">
+                            <Label Grid.Column="0" Text="{x:Static lang:Language.cong_viec_hom_nay}" FontSize="16" TextColor="{StaticResource NavigationPrimary}" FontAttributes="Bold"/>
+                            <Label Grid.Column="1" Text="{Binding Source={x:Static lang:Language.xem_them},StringFormat='{0} >>'}" FontSize="15" TextColor="{StaticResource NavigationPrimary}" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ShowMore_Tapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+                        <StackLayout x:Name="stTaskList" BindableLayout.ItemsSource="{Binding Activities}" Padding="14" Spacing="8">
+                            <BindableLayout.EmptyView>
+                                <Label Text="{x:Static lang:Language.hom_nay_khong_co_cong_vec}" FontSize="16" TextColor="Gray" HorizontalOptions="Center"/>
+                            </BindableLayout.EmptyView>
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <controls:ExtendedFrame Padding="12,16" BackgroundColor="White">
+                                        <controls:ExtendedFrame.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ActivitiItem_Tapped" CommandParameter="{Binding .}"/>
+                                        </controls:ExtendedFrame.GestureRecognizers>
+                                        <StackLayout Spacing="8">
+                                            <Grid ColumnDefinitions="Auto,*" Grid.Row="0" Grid.Column="0">
+                                                <telerikPrimitives:RadBorder Grid.Column="0" CornerRadius="5" BackgroundColor="{Binding activitytypecode_color}" VerticalOptions="StartAndExpand">
+                                                    <Label Text="{Binding activitytypecode_format}" FontSize="14" TextColor="White" FontAttributes="Bold" Margin="5"/>
+                                                </telerikPrimitives:RadBorder>
+                                                <Label Grid.Column="1" Text="{Binding subject}" TextColor="{StaticResource NavigationPrimary}" FontSize="15" FontAttributes="Bold" MaxLines="1" VerticalOptions="Center" LineBreakMode="TailTruncation" />
+                                            </Grid>
+                                            <Label FontSize="15" TextColor="#333333">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{Binding Source={x:Static lang:Language.khach_hang},StringFormat='{0}:'}" />
+                                                        <Span Text=" "/>
+                                                        <Span Text="{Binding customer}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="Center">
+                                                <Label Text="{Binding Source={x:Static lang:Language.thoi_gian}}" FontSize="15" TextColor="#333333"/>
+                                                <Label FontSize="15" TextColor="#333333">
+                                                    <Label.Text>
+                                                        <MultiBinding StringFormat=': {0:HH:mm} - {1:HH:mm}'>
+                                                            <Binding Path="scheduledstart" />
+                                                            <Binding Path="scheduledend" />
+                                                        </MultiBinding>
+                                                    </Label.Text>
+                                                </Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </controls:ExtendedFrame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                        <!--#endregion Cong viec hom nay-->
+                    </StackLayout>
+                </ScrollView>
+            </RefreshView>
+            <views:ActivityPopupContentView x:Name="ActivityPopup" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
+            <!--<controls:PopupHover x:Name="PopupHover" />-->
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    xmlns:converters="clr-namespace:HandoverApp.Converters"
+    xmlns:controls="clr-namespace:HandoverApp.Controls"
+    Title="{Binding PinkBookHandover.bsd_name}"
+    xmlns:lang="clr-namespace:HandoverApp.Resources"
+    x:Class="HandoverApp.Views.PinkBookHandoverPage" x:Name="this">
+    <ContentPage.Resources>
+        <converters:NullToHideConverter x:Key="NullToHideConverter"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Padding="0,0,0,60">
+                <StackLayout>
+                    <telerikPrimitives:RadBorder BorderThickness="1" CornerRadius="10" BorderColor="Gray" Margin="10,20,10,0">
+                        <StackLayout Padding="15,10" Spacing="10">
+                            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto" Grid.Row="0" Grid.Column="0">
+                                <telerikPrimitives:RadBorder CornerRadius="5" BackgroundColor="{Binding PinkBookHandover.status_format.Background}" VerticalOptions="Start">
+                                    <Label Grid.Column="0" Text="{Binding PinkBookHandover.status_format.Name}" FontSize="14" TextColor="White" FontAttributes="Bold" Margin="5"/>
+                                </telerikPrimitives:RadBorder>
+                                <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_name}" TextColor="{StaticResource NavigationPrimary}" FontSize="16" FontAttributes="Bold" VerticalOptions="Center"/>
+                            </Grid>
+                            <Grid ColumnDefinitions="Auto,*" IsVisible="{Binding PinkBookHandover.bsd_handovernumber,Converter={StaticResource NullToHideConverter}}">
+                                <Label Grid.Column="0" Text="{Binding Source={x:Static lang:Language.ma_ban_giao},StringFormat='{0}: '}" FontSize="15" TextColor="#444444"/>
+                                <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_handovernumber}" TextColor="#333333" FontSize="15" FontAttributes="Bold"/>
+                            </Grid>
+                            <Grid ColumnDefinitions="Auto,*">
+                                <Label Grid.Column="0" Text="{Binding Source={x:Static lang:Language.hop_dong},StringFormat='{0}: '}" FontSize="15" TextColor="#444444"/>
+                                <Label Grid.Column="1" Text="{Binding PinkBookHandover.optionentry_name}" TextColor="{StaticResource NavigationPrimary}" FontSize="15" FontAttributes="Bold">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OptionEntry_Tapped" CommandParameter="{Binding PinkBookHandover.optionentry_id}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                            <Grid ColumnDefinitions="Auto,*">
+                                <Label Grid.Column="0" Text="{Binding Source={x:Static lang:Language.du_an},StringFormat='{0}: '}" FontSize="15" TextColor="#444444"/>
+                                <Label Grid.Column="1" Text="{Binding PinkBookHandover.project_name}" TextColor="{StaticResource NavigationPrimary}" FontSize="15" FontAttributes="Bold">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Project_Tapped" CommandParameter="{Binding PinkBookHandover.project_id}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                            <Grid ColumnDefinitions="Auto,*" >
+                                <Label Grid.Column="0" Text="{Binding Source={x:Static lang:Language.san_pham},StringFormat='{0}: '}" FontSize="15" TextColor="#444444"/>
+                                <Label Grid.Column="1" Text="{Binding PinkBookHandover.unit_name}" TextColor="{StaticResource NavigationPrimary}" FontSize="15" FontAttributes="Bold">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Unit_Tapped" CommandParameter="{Binding PinkBookHandover.unit_id}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </StackLayout>
+                    </telerikPrimitives:RadBorder>
+
+                    <telerikPrimitives:RadExpander IsExpanded="True" BorderColor="Transparent" Margin="0,10,0,0">
+                        <telerikPrimitives:RadExpander.Header>
+                            <telerikPrimitives:ExpanderHeader Style="{StaticResource ExpanderHeaderStyle}">
+                                <Label Style="{StaticResource ExpanderHeadingText}" Text="{x:Static lang:Language.thong_tin_chung_title}"/>
+                            </telerikPrimitives:ExpanderHeader>
+                        </telerikPrimitives:RadExpander.Header>
+                        <telerikPrimitives:RadExpander.Content>
+                            <StackLayout Spacing="1" BackgroundColor="#F1F1F1">
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.tong_tien_pink_book_handover}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.totalpaidamount_format}" FontAttributes="Bold"  TextColor="Red" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.mo_ta}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_description}" TextColor="#333333" FontAttributes="Bold" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+                            </StackLayout>
+                        </telerikPrimitives:RadExpander.Content>
+                    </telerikPrimitives:RadExpander>
+                    <telerikPrimitives:RadExpander IsExpanded="True" BorderColor="Transparent" Margin="0,10,0,0">
+                        <telerikPrimitives:RadExpander.Header>
+                            <telerikPrimitives:ExpanderHeader Style="{StaticResource ExpanderHeaderStyle}">
+                                <Label Style="{StaticResource ExpanderHeadingText}" Text="{x:Static lang:Language.thong_tin_ban_giao_gcn}"/>
+                            </telerikPrimitives:ExpanderHeader>
+                        </telerikPrimitives:RadExpander.Header>
+                        <telerikPrimitives:RadExpander.Content>
+                            <StackLayout Spacing="1" BackgroundColor="#F1F1F1">
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.so_chung_chi}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_certificatenumber}" TextColor="#333333" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.ky_hieu}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_symbol}" TextColor="#333333" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.ngay_ban_giao}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_issuedon,StringFormat='{0:dd/MM/yyyy}'}" TextColor="#333333" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.noi_ban_giao}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_placeofissue}" TextColor="#333333" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.handover_date_pb}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_handoverdate,StringFormat='{0:dd/MM/yyyy}'}" TextColor="#333333" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.pink_book_area_spm}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_pinkbookarea,StringFormat='{0:#,0.00}'}" TextColor="#333333" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.pink_book_receipt_date}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_pinkbookreceiptdate,StringFormat='{0:dd/MM/yyyy}'}" TextColor="#333333" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.registration_tax}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_registrationtax}" TextColor="#333333" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.inspection_fee}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_inspectionfee}" TextColor="#333333" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.issuance_fee}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_issuancefee}" TextColor="#333333" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.other_handover_document}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_otherhandoverdocument}" TextColor="#333333" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.nguoi_in}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.pinter_name}" TextColor="{StaticResource NavigationPrimary}" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.ngay_in}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_printdate,StringFormat='{0:dd/MM/yyyy}'}" TextColor="#333333" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.nguoi_xac_nhan}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.confirmer_name}" TextColor="{StaticResource NavigationPrimary}" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto,*" BackgroundColor="White">
+                                    <Label Grid.Column="0" Text="{x:Static lang:Language.ngay_xac_nhan}" FontSize="15" TextColor="#333333"  VerticalOptions="Center" Padding="25,10,0,10"/>
+                                    <Label Grid.Column="1" Text="{Binding PinkBookHandover.bsd_confirmdate,StringFormat='{0:dd/MM/yyyy}'}" TextColor="#333333" HorizontalTextAlignment="End" VerticalOptions="Center" FontSize="15" Padding="0,10,25,10"/>
+                                </Grid>
+                            </StackLayout>
+                        </telerikPrimitives:RadExpander.Content>
+                    </telerikPrimitives:RadExpander>
+                </StackLayout>
+            </ScrollView>
+            <controls:FloatingButtonGroup x:Name="floatingButtonGroup" ItemsSource="{Binding BindingContext.ButtonCommandList,Source={x:Reference this}}"/>
+            <controls:CenterPopup x:Name="centerConfirm" Title="{x:Static lang:Language.chon_ngay}">
+                <controls:CenterPopup.Body>
+                    <StackLayout>
+                        <controls:FormLabelRequired Text="{x:Static lang:Language.ngay_xac_nhan}"/>                        
+                        <controls:DatePickerBoderControl ShowTime="False" Date="{Binding ConfirmDate}" Placeholder="{x:Static lang:Language.ngay_xac_nhan}" />
+
+                        <Button Text="{x:Static lang:Language.xac_nhan}" Clicked="ConfirmPinkbookHandover_Clicked" BackgroundColor="{x:StaticResource NavigationPrimary}" CornerRadius="5"  TextColor="White" FontAttributes="Bold" HeightRequest="40" HorizontalOptions="End"/>
+                    </StackLayout>
+                </controls:CenterPopup.Body>
+            </controls:CenterPopup>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

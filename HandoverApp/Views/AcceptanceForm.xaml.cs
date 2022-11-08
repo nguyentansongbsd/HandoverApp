@@ -1,0 +1,73 @@
+﻿using HandoverApp.Helpers;
+using HandoverApp.Models;
+using HandoverApp.Resources;
+using HandoverApp.ViewModels;
+using System;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace HandoverApp.Views
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AcceptanceForm : ContentPage
+    {
+        private AcceptanceFormViewModel viewModel;
+        public Action<bool> OnCompleted;
+
+        public AcceptanceForm(Guid id)
+        {
+            InitializeComponent();
+            BindingContext = viewModel = new AcceptanceFormViewModel();
+            Init(id);
+        }
+
+        public async void Init(Guid id)
+        {
+            await viewModel.LoadAcceptance(id);
+            if (viewModel.Acceptance != null && viewModel.Acceptance.bsd_acceptanceid != Guid.Empty)
+            {
+                SetPreOpen();
+                OnCompleted?.Invoke(true);
+            }
+            else
+                OnCompleted?.Invoke(false);
+        }
+
+        public void SetPreOpen()
+        {
+            lookUpLoaiKQ.PreOpenAsync = async () => {
+                LoadingHelper.Show();
+                viewModel.TypeResults = AcceptanceTypeResult.AcceptanceTypeResultData();
+                LoadingHelper.Hide();
+            };
+            lookUpLich.PreOpenAsync = async () => {
+                LoadingHelper.Show();
+                await viewModel.LoadInstallment();
+                LoadingHelper.Hide();
+            };
+        }
+
+        private async void Update_Clicked(object sender, EventArgs e)
+        {
+            if (viewModel.TypeResult == null)
+            {
+                ToastMessageHelper.ShortMessage(Language.vui_long_chon_loai_ket_qua);
+                return;
+            }
+            LoadingHelper.Show();
+            var result = await viewModel.Update();
+            if (result.IsSuccess)
+            {
+                if (AcceptanceDetailPage.NeedToRefresh.HasValue) AcceptanceDetailPage.NeedToRefresh = true;
+                await Navigation.PopAsync();
+                ToastMessageHelper.ShortMessage(Language.thong_bao_thanh_cong);
+                LoadingHelper.Hide();
+            }
+            else
+            {
+                LoadingHelper.Hide();
+                ToastMessageHelper.LongMessage(result.ErrorResponse.error.message);
+            }
+        }
+    }
+}
