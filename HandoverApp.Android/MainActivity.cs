@@ -20,10 +20,11 @@ namespace HandoverApp.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
-            DependencyService.Get<ILoadingService>().Initilize();
-            Xamarin.Essentials.Platform.Init(Application);
+            //Xamarin.Essentials.Platform.Init(Application);
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
+
             LoadApplication(new App());
+            DependencyService.Get<ILoadingService>().Initilize();
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

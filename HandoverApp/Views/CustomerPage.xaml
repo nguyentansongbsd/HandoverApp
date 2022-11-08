@@ -1,11 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:HandoverApp.Controls"
     xmlns:lang="clr-namespace:HandoverApp.Resources"
-    xmlns:contentViews="clr-namespace:HandoverApp.Views"
     Title="{x:Static lang:Language.khach_hang_title}" BackgroundColor="White"
     x:Class="HandoverApp.Views.CustomerPage">
     <ContentPage.Content>

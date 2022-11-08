@@ -61,12 +61,12 @@
     </Shell.FlyoutHeader>
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" >
-        <ShellContent Title="{x:Static lang:Language.trang_chu_title}" ContentTemplate="{DataTemplate views:AcceptanceList}">
+        <ShellContent Title="{x:Static lang:Language.trang_chu_title}" ContentTemplate="{DataTemplate views:Dashboard}">
             <ShellContent.Icon>
                 <FontImageSource FontFamily="FontAwesomeSolid" Color="#7D7D7D" Glyph="&#xf015;" Size="18"/>
             </ShellContent.Icon>
         </ShellContent>
-        <!--<ShellContent Title="{x:Static lang:Language.khach_hang_title}" ContentTemplate="{DataTemplate views:CustomerPage}">
+        <ShellContent Title="{x:Static lang:Language.khach_hang_title}" ContentTemplate="{DataTemplate views:CustomerPage}">
             <ShellContent.Icon>
                 <FontImageSource FontFamily="FontAwesomeSolid" Color="#7D7D7D" Glyph="&#xf0c0;" Size="18"/>
             </ShellContent.Icon>
@@ -75,10 +75,10 @@
             <ShellContent.Icon>
                 <FontImageSource FontFamily="FontAwesomeSolid" Color="#7D7D7D" Glyph="&#xf07a;" Size="18"/>
             </ShellContent.Icon>
-        </ShellContent>-->
+        </ShellContent>
     </FlyoutItem>
 
-    <!--<ShellContent Title="{x:Static lang:Language.unit_spec_title}" ContentTemplate="{DataTemplate views:UnitSpecificationList}">
+    <ShellContent Title="{x:Static lang:Language.unit_spec_title}" ContentTemplate="{DataTemplate views:UnitSpecificationList}">
         <ShellContent.Icon>
             <FontImageSource FontFamily="FontAwesomeSolid" Color="#7D7D7D" Glyph="&#xf02d;" Size="18"/>
         </ShellContent.Icon>
@@ -115,7 +115,7 @@
                 <FontImageSource FontFamily="FontAwesomeSolid" Color="#7D7D7D" Glyph="&#xf0ae;" Size="18"/>
             </ShellContent.Icon>
         </ShellContent>
-    </FlyoutItem>-->
+    </FlyoutItem>
 
     <MenuItem Text="{x:Static lang:Language.dang_xuat}" Clicked="Logout_Clicked">
         <MenuItem.IconImageSource>
