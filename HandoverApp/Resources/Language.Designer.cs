@@ -3844,5 +3844,83 @@ namespace HandoverApp.Resources {
                 return ResourceManager.GetString("thanh_ly_ket_thuc_hop_dong", resourceCulture);
             }
         }
+        
+        internal static string moi {
+            get {
+                return ResourceManager.GetString("moi", resourceCulture);
+            }
+        }
+        
+        internal static string cu {
+            get {
+                return ResourceManager.GetString("cu", resourceCulture);
+            }
+        }
+        
+        internal static string unit_type {
+            get {
+                return ResourceManager.GetString("unit_type", resourceCulture);
+            }
+        }
+        
+        internal static string mo_ta_vn {
+            get {
+                return ResourceManager.GetString("mo_ta_vn", resourceCulture);
+            }
+        }
+        
+        internal static string mo_ta_khac {
+            get {
+                return ResourceManager.GetString("mo_ta_khac", resourceCulture);
+            }
+        }
+        
+        internal static string ca_nhan {
+            get {
+                return ResourceManager.GetString("ca_nhan", resourceCulture);
+            }
+        }
+        
+        internal static string doanh_nghiep {
+            get {
+                return ResourceManager.GetString("doanh_nghiep", resourceCulture);
+            }
+        }
+        
+        internal static string giao_dich_title {
+            get {
+                return ResourceManager.GetString("giao_dich_title", resourceCulture);
+            }
+        }
+        
+        internal static string thong_ke_title {
+            get {
+                return ResourceManager.GetString("thong_ke_title", resourceCulture);
+            }
+        }
+        
+        internal static string tong_hop_title {
+            get {
+                return ResourceManager.GetString("tong_hop_title", resourceCulture);
+            }
+        }
+        
+        internal static string chi_tiet_title {
+            get {
+                return ResourceManager.GetString("chi_tiet_title", resourceCulture);
+            }
+        }
+        
+        internal static string lich_title {
+            get {
+                return ResourceManager.GetString("lich_title", resourceCulture);
+            }
+        }
+        
+        internal static string ban_giao {
+            get {
+                return ResourceManager.GetString("ban_giao", resourceCulture);
+            }
+        }
     }
 }
