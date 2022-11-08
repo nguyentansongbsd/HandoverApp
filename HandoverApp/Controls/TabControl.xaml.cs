@@ -31,7 +31,7 @@ namespace HandoverApp.Controls
         //ngôn ngữ
         private static System.Globalization.CultureInfo resourceCulture;
 
-        ResourceManager resourceManager = new ResourceManager("PhuLongCRM.Resources.Language", typeof(Resources.Language).Assembly);      
+        ResourceManager resourceManager = new ResourceManager("HandoverApp.Resources.Language", typeof(Resources.Language).Assembly);      
 
         public TabControl()
         {

@@ -1932,4 +1932,43 @@
 	<data name="thanh_ly_ket_thuc_hop_dong" xml:space="preserve">
 		<value>Completed</value>
 	</data>
+	<data name="moi" xml:space="preserve">
+		<value>New</value>
+	</data>
+	<data name="cu" xml:space="preserve">
+		<value>Old</value>
+	</data>
+	<data name="unit_type" xml:space="preserve">
+    <value>Unit type</value>
+  </data>
+  <data name="mo_ta_vn" xml:space="preserve">
+    <value>Descriptions (VN)</value>
+  </data>
+  <data name="mo_ta_khac" xml:space="preserve">
+    <value>Descriptions (Other)</value>
+  </data>
+  <data name="ca_nhan" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+	<data name="doanh_nghiep" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="giao_dich_title" xml:space="preserve">
+		<value>Transaction</value>
+	</data>
+	<data name="thong_ke_title" xml:space="preserve">
+		<value>Statistical</value>
+	</data>
+	<data name="tong_hop_title" xml:space="preserve">
+		<value>Summary</value>
+	</data>
+	<data name="chi_tiet_title" xml:space="preserve">
+		<value>Detail</value>
+	</data>
+	<data name="lich_title" xml:space="preserve">
+		<value>Installment</value>
+	</data>
+	<data name="ban_giao" xml:space="preserve">
+    <value>Handover</value>
+  </data>
 </root>
