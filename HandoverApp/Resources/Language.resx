@@ -1971,4 +1971,7 @@
 	<data name="ban_giao" xml:space="preserve">
     <value>Bàn giao</value>
   </data>
+	<data name="floor_plan" xml:space="preserve">
+    <value>Mặt Bằng Tầng</value>
+  </data>
 </root>

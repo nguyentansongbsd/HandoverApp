@@ -1971,4 +1971,7 @@
 	<data name="ban_giao" xml:space="preserve">
     <value>Handover</value>
   </data>
+	<data name="floor_plan" xml:space="preserve">
+    <value>Floor Plan</value>
+  </data>
 </root>

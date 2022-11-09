@@ -62,7 +62,6 @@
     <Folder Include="Controls\" />
     <Folder Include="Resources\" />
     <Folder Include="Helpers\" />
-    <Folder Include="IServices\" />
     <Folder Include="Fonts\" />
     <Folder Include="Behaviors\" />
   </ItemGroup>
@@ -91,6 +90,8 @@
     </Compile>
     <Compile Update="Resources\Language.Designer.cs">
       <DependentUpon>Language.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
   </ItemGroup>
 </Project>
