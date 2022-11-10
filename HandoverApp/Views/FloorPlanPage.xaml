@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HandoverApp.Views.FloorPlanPage"
+             xmlns:lang="clr-namespace:HandoverApp.Resources"
+             Title="{x:Static lang:Language.floor_plan}"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <WebView x:Name="webView" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+             android:WebView.EnableZoomControls="true"
+             android:WebView.DisplayZoomControls="true"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
