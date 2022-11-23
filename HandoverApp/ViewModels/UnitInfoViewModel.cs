@@ -122,7 +122,6 @@ namespace HandoverApp.ViewModels
                 <attribute name='bsd_confirmdocument' />
                 <attribute name='bsd_pinkbooknumber' />
                 <attribute name='bsd_pinkbookreceiptdate' />
-                <attribute name='bsd_complete' />
                 <attribute name='bsd_phaseslaunchid' alias='bsd_phaseslaunch_id' />
                 <filter type='and'>
                   <condition attribute='productid' operator='eq' uitype='product' value='" + UnitId.ToString() + @"' />

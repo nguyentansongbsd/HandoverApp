@@ -59,7 +59,6 @@
     <Folder Include="Converters\" />
     <Folder Include="Settings\" />
     <Folder Include="Configurations\" />
-    <Folder Include="Controls\" />
     <Folder Include="Resources\" />
     <Folder Include="Helpers\" />
     <Folder Include="Fonts\" />
@@ -75,6 +74,9 @@
     <EmbeddedResource Include="Fonts\Roboto-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Controls\MapFloorPlan.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Language.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Language.en.Designer.cs</LastGenOutput>
