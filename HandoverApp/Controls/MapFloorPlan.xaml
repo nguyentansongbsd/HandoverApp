@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:HandoverApp.Controls"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
+             x:Class="HandoverApp.Controls.MapFloorPlan">
+  <ContentView.Content>
+        <AbsoluteLayout>
+            <Grid x:Name="map" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <controls:CustomWebView Uri="index.html" x:Name="webView"
+             android:WebView.EnableZoomControls="true"
+             android:WebView.DisplayZoomControls="true"/>
+            </Grid>
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>
